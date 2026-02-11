@@ -1,0 +1,132 @@
+body {
+    background: url("https://i.imgur.com/8fK4YtM.jpg");
+    background-size: cover;
+    font-family: "Courier New", monospace;
+    color: #fff;
+    text-shadow: 1px 1px #000;
+    overflow-x: hidden;
+}
+
+/* header */
+.header {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    margin: 20px auto;
+    width: 70%;
+    border: 3px solid #ff0066;
+    transform: rotate(-1deg);
+}
+
+.header h1 {
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* nav */
+.nav {
+    margin-top: 10px;
+}
+
+.nav a {
+    margin: 0 10px;
+    padding: 5px 10px;
+    background: #ff0066;
+    color: white;
+    text-decoration: none;
+    border: 2px dashed #fff;
+    transform: rotate(1deg);
+}
+
+.nav a:hover {
+    background: #ff55aa;
+}
+
+/* content box */
+.content {
+    background: rgba(255,255,255,0.2);
+    padding: 20px;
+    width: 60%;
+    margin: 30px auto;
+    border: 3px dotted #ff0066;
+    transform: rotate(1deg);
+}
+
+/* floating stickers */
+body {
+    background: url("https://i.imgur.com/8fK4YtM.jpg");
+    background-size: cover;
+    font-family: "Verdana", sans-serif;
+    color: #fff;
+}
+
+/* glitter overlay */
+.glitter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("https://i.imgur.com/3ZQ3Z4H.gif");
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+/* profile header */
+.profile-header {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.pfp {
+    width: 150px;
+    border: 4px solid #ff66cc;
+    transform: rotate(-3deg);
+}
+
+.status {
+    font-size: 14px;
+    color: #ffccff;
+    animation: blink 1s infinite;
+}
+
+/* layout */
+.layout {
+    display: flex;
+    width: 80%;
+    margin: 30px auto;
+    gap: 20px;
+}
+
+/* columns */
+.left-col, .right-col {
+    width: 50%;
+}
+
+/* boxes */
+.box {
+    background: rgba(0,0,0,0.6);
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 3px solid #ff66cc;
+    transform: rotate(1deg);
+}
+
+.box h2 {
+    margin-top: 0;
+    color: #ff99ff;
+}
+
+/* animations */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+.deleteComment {
+    display: none;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>emma’s myspace profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- glitter overlay -->
+    <div class="glitter"></div>
+
+    <!-- profile header -->
+    <div class="profile-header">
+        <img src="https://i.imgur.com/1Q9Z1ZB.gif" class="pfp" alt="profile picture">
+        <h1>emma ✦</h1>
+        <p class="status">"currently: coding & feeling"</p>
+    </div>
+
+    <!-- music player -->
+    <div class="music-player">
+        <p>♫ now playing ♫</p>
+<audio controls autoplay loop>
+    <source src="my-song.mp3" type="audio/mpeg">
+</audio>
+
+    </div>
+
+    <!-- main layout -->
+    <div class="layout">
+
+        <!-- left column -->
+        <div class="left-col">
+            <div class="box about">
+                <h2>about me</h2>
+                <p>birthday: 12/04/2000</p>
+                <p>location: texas</p>
+                <p>mood: relaxed </p>
+            </div>
+
+            <div class="box top5">
+                <h2>top 5</h2>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- right column -->
+        <div class="right-col">
+            <div class="box blog">
+                <h2>latest blog entry</h2>
+                <p>this is my new blog omg hiiii</p>
+                <div id="updateList"></div>
+                <p class="give an un update">
+                    <textarea id="updateText" placeholder="your update"></textarea>
+                    <button id="submitUpdate">post</button> last updated: <span id="lastUpdated"></span></p>
+            </div>
+
+            <div class="box comments">
+                <h2>comments</h2>
+                <p>no comments yet… be the first!</p>
+                <div id="commentList"></div>
+                <div class="add-comment"> 
+                    <textarea id="commentText" placeholder="your comment"></textarea>
+                    <button id="submitComment">post</button>
+        </div>
+
+    </div>
+<script>
+    const updatedSpan = document.getElementById("lastUpdated");
+    const now = new Date();
+
+    // Format: Feb 11, 2026 – 3:08 AM
+    const options = {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+    };
+const list = document.getElementById("commentList"); const textInput = document.getElementById("commentText"); const button = document.getElementById("submitComment"); 
+// Load saved comments 
+let comments = JSON.parse(localStorage.getItem("comments")) || []; function renderComments() { list.innerHTML = ""; comments.forEach((c, index) => { const comment = document.createElement("div"); comment.className = "comment"; comment.innerHTML = ` <p>${c.text}</p> <p class="date">${c.date}</p> <button class="deleteComment" data-index="${index}" style="display:none;">delete</button> `; list.prepend(comment); }); 
+// show delete buttons only if admin 
+if (window.location.search.includes("admin")) { document.querySelectorAll(".deleteComment").forEach(btn => { btn.style.display = "inline-block"; }); } } renderComments(); 
+// Add new comment
+ button.addEventListener("click", () => { const text = textInput.value.trim(); if (!text) return; const newComment = { text: text, date: new Date().toLocaleString() }; comments.push(newComment); localStorage.setItem("comments", JSON.stringify(comments)); renderComments(); textInput.value = ""; }); 
+ // Delete comment (admin only) 
+ list.addEventListener("click", (event) => { if (event.target.classList.contains("deleteComment")) { const index = event.target.dataset.index; comments.splice(index, 1); localStorage.setItem("comments", JSON.stringify(comments)); renderComments(); } });
+</script>
+
+</body>
+</html>
