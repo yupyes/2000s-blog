@@ -300,7 +300,6 @@ p#text.title:after {
 
 /* album cover box */
 p#text2 {
-    float: center;
     margin-right: 1px;
     position: relative;
     padding: 13px 4px;
